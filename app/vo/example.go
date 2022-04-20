@@ -1,11 +1,11 @@
 // +----------------------------------------------------------------------
 // | EasyGoAdmin敏捷开发框架 [ EasyGoAdmin ]
 // +----------------------------------------------------------------------
-// | 版权所有 2021 EasyGoAdmin深圳研发中心
+// | 版权所有 2019~2022 深圳EasyGoAdmin研发中心
 // +----------------------------------------------------------------------
 // | 官方网站: http://www.easygoadmin.vip
 // +----------------------------------------------------------------------
-// | Author: 半城风雨 <easygoadmin@163.com>
+// | Author: @半城风雨
 // +----------------------------------------------------------------------
 // | 免责声明:
 // | 本软件框架禁止任何单位和个人用于任何违法、侵害他人合法利益等恶意的行为，禁止用于任何违
@@ -28,8 +28,8 @@ import "easygoadmin/app/models"
 // 演示一信息Vo
 type ExampleInfoVo struct {
 	models.Example
-	
+
 	StatusName int `json:"statusName"` // 状态名称
-	TypeName int `json:"typeName"` // 类型名称
-	IsVipName int `json:"isVipName"` // 是否VIP名称
+	TypeName   int `json:"typeName"`   // 类型名称
+	IsVipName  int `json:"isVipName"`  // 是否VIP名称
 }

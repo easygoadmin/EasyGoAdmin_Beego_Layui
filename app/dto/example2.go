@@ -1,11 +1,11 @@
 // +----------------------------------------------------------------------
 // | EasyGoAdmin敏捷开发框架 [ EasyGoAdmin ]
 // +----------------------------------------------------------------------
-// | 版权所有 2021 EasyGoAdmin深圳研发中心
+// | 版权所有 2019~2022 深圳EasyGoAdmin研发中心
 // +----------------------------------------------------------------------
 // | 官方网站: http://www.easygoadmin.vip
 // +----------------------------------------------------------------------
-// | Author: 半城风雨 <easygoadmin@163.com>
+// | Author: @半城风雨
 // +----------------------------------------------------------------------
 // | 免责声明:
 // | 本软件框架禁止任何单位和个人用于任何违法、侵害他人合法利益等恶意的行为，禁止用于任何违
@@ -19,63 +19,38 @@ package dto
 
 // 分页查询
 type Example2PageReq struct {
+	Name string `form:"name"` // 演示名称
 
-	
-	Name   string `form:"name"`   // 演示名称
-	
+	Status int `form:"status"` // 状态：1正常 2停用
 
-	
-	Status   int    `form:"status"`   // 状态：1正常 2停用
-	
-
-	Page  int    `form:"page"`  // 页码
-	Limit int    `form:"limit"` // 每页数
+	Page  int `form:"page"`  // 页码
+	Limit int `form:"limit"` // 每页数
 }
 
 // 添加演示二
 type Example2AddReq struct {
+	Name string `form:"name" validate:"required"` // 演示名称
 
-	
-	Name  string `form:"name" validate:"required"`   // 演示名称
-	
+	Status int `form:"status" validate:"int"` // 状态：1正常 2停用
 
-	
-	Status  int    `form:"status" validate:"int"`    // 状态：1正常 2停用
-	
-
-	
-	Sort  int    `form:"sort" validate:"int"`    // 排序号
-	
+	Sort int `form:"sort" validate:"int"` // 排序号
 
 }
 
 // 编辑演示二
 type Example2UpdateReq struct {
-	Id     string    `form:"id" validate:"required"`
+	Id string `form:"id" validate:"required"`
 
-	
-	Name  string `form:"name" validate:"required"`   // 演示名称
-	
+	Name string `form:"name" validate:"required"` // 演示名称
 
-	
-	Status  int    `form:"status" validate:"int"`    // 状态：1正常 2停用
-	
+	Status int `form:"status" validate:"int"` // 状态：1正常 2停用
 
-	
-	Sort  int    `form:"sort" validate:"int"`    // 排序号
-	
+	Sort int `form:"sort" validate:"int"` // 排序号
 
 }
-
-
-
-
 
 // 设置状态
 type Example2StatusReq struct {
 	Id     int `form:"id" validate:"int"`
 	Status int `form:"status" validate:"int"`
 }
-
-
-
