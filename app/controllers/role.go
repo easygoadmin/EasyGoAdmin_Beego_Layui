@@ -78,13 +78,10 @@ func (ctl *RoleController) Edit() {
 		}
 		// 渲染模板
 		ctl.Data["info"] = info
-		ctl.Layout = "public/form.html"
-		ctl.TplName = "role/edit.html"
-	} else {
-		// 添加
-		ctl.Layout = "public/form.html"
-		ctl.TplName = "role/edit.html"
 	}
+	// 渲染模板
+	ctl.Layout = "public/form.html"
+	ctl.TplName = "role/edit.html"
 }
 
 func (ctl *RoleController) Add() {

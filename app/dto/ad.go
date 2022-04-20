@@ -17,6 +17,8 @@
 
 package dto
 
+import "github.com/gookit/validate"
+
 // 列表查询
 type AdPageReq struct {
 	Title string `form:"title"` // 广告标题
@@ -42,6 +44,23 @@ type AdAddReq struct {
 	Note        string `form:"note"`                            // 备注
 }
 
+// 添加广告表单验证
+func (a AdAddReq) Messages() map[string]string {
+	return validate.MS{
+		"Title.required":       "广告标题不能为空.",
+		"AdSortId.int":         "请选择广告位.",
+		"Type.int":             "请选择广告格式.",
+		"Description.required": "广告描述不能为空.",
+		"Url.required":         "广告URL不能为空.",
+		"Width.int":            "广告宽度不能为空.",
+		"Height.int":           "广告高度不能为空.",
+		"StartTime.required":   "开始时间不能为空.",
+		"EndTime.required":     "结束时间不能为空.",
+		"Status.int":           "请选择广告状态.",
+		"Sort.int":             "排序不能为空.",
+	}
+}
+
 // 更新广告
 type AdUpdateReq struct {
 	Id          int    `form:"id" validate:"int"`
@@ -61,8 +80,33 @@ type AdUpdateReq struct {
 	Note        string `form:"note"`                            // 备注
 }
 
+// 添加广告表单验证
+func (u AdUpdateReq) Messages() map[string]string {
+	return validate.MS{
+		"Id.int":               "广告ID不能为空.",
+		"Title.required":       "广告标题不能为空.",
+		"AdSortId.int":         "请选择广告位.",
+		"Type.int":             "请选择广告格式.",
+		"Description.required": "广告描述不能为空.",
+		"Url.required":         "广告URL不能为空.",
+		"Width.int":            "广告宽度不能为空.",
+		"Height.int":           "广告高度不能为空.",
+		"StartTime.required":   "开始时间不能为空.",
+		"EndTime.required":     "结束时间不能为空.",
+		"Status.int":           "请选择广告状态.",
+		"Sort.int":             "排序不能为空.",
+	}
+}
+
 // 设置状态
 type AdStatusReq struct {
 	Id     int `form:"id" validate:"int"`
 	Status int `form:"status" validate:"int"`
+}
+
+func (s AdStatusReq) Messages() map[string]string {
+	return validate.MS{
+		"Id.int":     "广告ID不能为空.",
+		"Status.int": "请选择广告状态.",
+	}
 }

@@ -84,13 +84,10 @@ func (ctl *LevelController) Edit() {
 		}
 		// 渲染模板
 		ctl.Data["info"] = info
-		ctl.Layout = "public/form.html"
-		ctl.TplName = "level/edit.html"
-	} else {
-		// 渲染模板
-		ctl.Layout = "public/form.html"
-		ctl.TplName = "level/edit.html"
 	}
+	// 渲染模板
+	ctl.Layout = "public/form.html"
+	ctl.TplName = "level/edit.html"
 }
 
 // 添加职级

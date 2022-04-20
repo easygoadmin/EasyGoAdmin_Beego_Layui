@@ -97,11 +97,7 @@ func (ctl *MenuController) Edit() {
 
 		// 渲染模板
 		ctl.Data["info"] = info
-		ctl.Data["typeList"] = constant.MENU_TYPE_LIST
 		ctl.Data["funcList"] = sortList
-		ctl.Data["menuList"] = menuList
-		ctl.Layout = "public/form.html"
-		ctl.TplName = "menu/edit.html"
 	} else {
 		// 添加
 		pid, _ := ctl.GetInt("pid", 0)
@@ -109,12 +105,14 @@ func (ctl *MenuController) Edit() {
 		info.Pid = pid
 		info.Status = 1
 		info.Target = 1
-		ctl.Data["typeList"] = constant.MENU_TYPE_LIST
+		ctl.Data["info"] = info
 		ctl.Data["funcList"] = make([]interface{}, 0)
-		ctl.Data["menuList"] = menuList
-		ctl.Layout = "public/form.html"
-		ctl.TplName = "menu/edit.html"
 	}
+	// 渲染模板
+	ctl.Data["menuList"] = menuList
+	ctl.Data["typeList"] = constant.MENU_TYPE_LIST
+	ctl.Layout = "public/form.html"
+	ctl.TplName = "menu/edit.html"
 }
 
 func (ctl *MenuController) Add() {

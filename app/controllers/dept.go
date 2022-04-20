@@ -79,15 +79,11 @@ func (ctl *DeptController) Edit() {
 		}
 		// 渲染模板
 		ctl.Data["info"] = info
-		ctl.Data["typeList"] = constant.DEPT_TYPE_LIST
-		ctl.Layout = "public/form.html"
-		ctl.TplName = "dept/edit.html"
-	} else {
-		// 添加
-		ctl.Data["typeList"] = constant.DEPT_TYPE_LIST
-		ctl.Layout = "public/form.html"
-		ctl.TplName = "dept/edit.html"
 	}
+	// 渲染模板
+	ctl.Data["typeList"] = constant.DEPT_TYPE_LIST
+	ctl.Layout = "public/form.html"
+	ctl.TplName = "dept/edit.html"
 }
 
 func (ctl *DeptController) Add() {
