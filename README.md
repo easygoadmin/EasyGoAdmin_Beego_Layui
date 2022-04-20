@@ -173,14 +173,6 @@ easygoadmin
 
 ![效果图](./uploads/demo/23.png)
 
-
-## 🍻 贡献者名单
-
-@半城风雨
-
-## 🍻  安全&缺陷
-如果你发现了一个安全漏洞或缺陷，请发送邮件到 easygoadmin@163.com,所有的安全漏洞都将及时得到解决。
-
 ## ✨  特别鸣谢
 感谢[Beego](https://beego.me)、[Layui](http://www.layui.com)等优秀开源项目。
 
