@@ -1,12 +1,4 @@
 // +----------------------------------------------------------------------
-// | EasyGoAdmin敏捷开发框架 [ EasyGoAdmin ]
-// +----------------------------------------------------------------------
-// | 版权所有 2019~2022 深圳EasyGoAdmin研发中心
-// +----------------------------------------------------------------------
-// | 官方网站: http://www.easygoadmin.vip
-// +----------------------------------------------------------------------
-// | Author: @半城风雨
-// +----------------------------------------------------------------------
 // | 版权和免责声明:
 // | 本团队对该软件框架产品拥有知识产权（包括但不限于商标权、专利权、著作权、商业秘密等）
 // | 均受到相关法律法规的保护，任何个人、组织和单位不得在未经本团队书面授权的情况下对所授权
@@ -25,7 +17,7 @@ import "easygoadmin/conf/config"
 
 // 全局配置结构体
 type Config struct {
-	Mysql config.MySQL `mapstructure:"mysql" json:"mysql" yaml:"mysql"`
+	Mysql      config.MySQL      `mapstructure:"mysql" json:"mysql" yaml:"mysql"`
 	Attachment config.Attachment `mapstructure:"attachment" json:"attachment" yaml:"attachment"`
 	EGAdmin    config.EGAdmin    `mapstructure:"easygoadmin" json:"easygoadmin" yaml:"easygoadmin"`
 }
