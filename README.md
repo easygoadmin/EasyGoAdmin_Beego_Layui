@@ -172,8 +172,6 @@ easygoadmin
 
 ![效果图](./uploads/demo/22.png)
 
-![效果图](./uploads/demo/23.png)
-
 ## ✨  特别鸣谢
 感谢[Beego](https://beego.me)、[Layui](http://www.layui.com)等优秀开源项目。
 

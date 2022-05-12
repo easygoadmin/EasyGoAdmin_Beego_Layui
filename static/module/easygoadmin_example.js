@@ -59,7 +59,7 @@ layui.use(['func'], function () {
         
             
             , {field: 'Status', width: 100, title: '状态', align: 'center', templet: function (d) {
-				return  '<input type="checkbox" name="Status" value="'+d.Id+'" lay-skin="switch" lay-text="正常|停用" lay-filter="Status" '+(d.status==1 ? 'checked' : '')+'>';
+				return  '<input type="checkbox" name="Status" value="'+d.Id+'" lay-skin="switch" lay-text="正常|停用" lay-filter="Status" '+(d.Status==1 ? 'checked' : '')+'>';
             }}
             
         

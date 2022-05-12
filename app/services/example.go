@@ -210,15 +210,13 @@ func (s *exampleService) Status(req dto.ExampleStatusReq, userId int) (int64, er
 		return 0, errors.New("演示环境，暂无权限操作")
 	}
 	// 查询记录是否存在
-	info := &models.Example{Id: gconv.Int(req.Id)}
-	err := info.Get()
+	entity := &models.Example{Id: gconv.Int(req.Id)}
+	err := entity.Get()
 	if err != nil {
 		return 0, errors.New("记录不存在")
 	}
 
 	// 设置状态
-	entity := &models.Example{}
-	entity.Id = info.Id
 	entity.Status = req.Status
 	entity.UpdateUser = userId
 	entity.UpdateTime = time.Now()
@@ -230,15 +228,13 @@ func (s *exampleService) IsVip(req dto.ExampleIsVipReq, userId int) (int64, erro
 		return 0, errors.New("演示环境，暂无权限操作")
 	}
 	// 查询记录是否存在
-	info := &models.Example{Id: gconv.Int(req.Id)}
-	err := info.Get()
+	entity := &models.Example{Id: gconv.Int(req.Id)}
+	err := entity.Get()
 	if err != nil {
 		return 0, errors.New("记录不存在")
 	}
 
-	// 设置状态
-	entity := &models.Example{}
-	entity.Id = info.Id
+	// 设置是否VIP
 	entity.IsVip = req.IsVip
 	entity.UpdateUser = userId
 	entity.UpdateTime = time.Now()

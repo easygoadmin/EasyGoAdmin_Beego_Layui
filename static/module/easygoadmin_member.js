@@ -44,10 +44,10 @@ layui.use(['func', 'form'], function () {
                         cls = "layui-btn-normal";
                     } else if (d.Gender == 2) {
                         // 女
-                        cls = "layui-btn-danger";
+                        cls = "layui-btn-warm";
                     } else if (d.Gender == 3) {
                         // 保密
-                        cls = "layui-btn-warm";
+                        cls = "layui-btn-danger";
                     }
                     return '<span class="layui-btn ' + cls + ' layui-btn-xs">' + d.GenderName + '</span>';
                 }
@@ -73,10 +73,10 @@ layui.use(['func', 'form'], function () {
                         cls = "layui-btn-normal";
                     } else if (d.Device == 2) {
                         // 安卓
-                        cls = "layui-btn-danger";
+                        cls = "layui-btn-warm";
                     } else if (d.Device == 3) {
                         // WAP站
-                        cls = "layui-btn-warm";
+                        cls = "layui-btn-danger";
                     } else if (d.Device == 4) {
                         // PC站
                         cls = "layui-btn-primary";
@@ -94,7 +94,7 @@ layui.use(['func', 'form'], function () {
                         cls = "layui-btn-normal";
                     } else if (d.Source == 2) {
                         // 马甲会员
-                        cls = "layui-btn-danger";
+                        cls = "layui-btn-primary";
                     }
                     return '<span class="layui-btn ' + cls + ' layui-btn-xs">'+d.SourceName+'</span>';
                 }}

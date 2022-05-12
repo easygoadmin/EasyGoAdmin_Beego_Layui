@@ -49,9 +49,9 @@ func (s *dictServce) GetList(req dto.DictPageReq) ([]models.Dict, int64, error) 
 	query = query.OrderBy("sort")
 	// 查询总数
 	count, err := query.Count()
-	// 分页设置
-	offset := (req.Page - 1) * req.Limit
-	query = query.Limit(req.Limit, offset)
+	//// 分页设置
+	//offset := (req.Page - 1) * req.Limit
+	//query = query.Limit(req.Limit, offset)
 	// 查询列表
 	lists := make([]models.Dict, 0)
 	query.All(&lists)
