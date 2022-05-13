@@ -330,7 +330,7 @@ func (s *userService) UpdateUserInfo(req dto.UserInfoReq, userId int) (int64, er
 	//}
 	user.Realname = req.Realname
 	user.Nickname = req.Nickname
-	user.Gender = gconv.Int(req.Gender)
+	user.Gender = req.Gender
 	user.Mobile = req.Mobile
 	user.Email = req.Email
 	user.Address = req.Address

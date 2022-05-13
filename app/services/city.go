@@ -161,7 +161,6 @@ func (s *cityService) Delete(ids string) (int64, error) {
 }
 
 func (s *cityService) GetCityName(cityCode string, delimiter string) string {
-	//info := &model.City{Citycode: cityCode}
 	var info models.City
 	err := orm.NewOrm().QueryTable(new(models.City)).Filter("citycode", cityCode).One(&info)
 	if err != nil {

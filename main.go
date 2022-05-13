@@ -24,9 +24,9 @@
 package main
 
 import (
-	_ "easygoadmin/initialize/config"
-	_ "easygoadmin/initialize/mysql"
-	_ "easygoadmin/initialize/session"
+	_ "easygoadmin/boot/config"
+	_ "easygoadmin/boot/mysql"
+	_ "easygoadmin/boot/session"
 	_ "easygoadmin/routers"
 	"github.com/beego/beego/v2/client/orm"
 	beego "github.com/beego/beego/v2/server/web"

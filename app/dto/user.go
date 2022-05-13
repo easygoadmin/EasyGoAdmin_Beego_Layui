@@ -143,7 +143,7 @@ type UserInfoReq struct {
 	Avatar   string `form:"avatar"`                       // 头像
 	Realname string `form:"realname" validate:"required"` // 真实姓名
 	Nickname string `form:"nickname" validate:"required"` // 昵称
-	Gender   string `form:"gender" validate:"required"`   // 性别:1男 2女 3保密
+	Gender   int    `form:"gender" validate:"int"`        // 性别:1男 2女 3保密
 	Mobile   string `form:"mobile" validate:"required"`   // 手机号码
 	Email    string `form:"email" validate:"required"`    // 邮箱地址
 	Address  string `form:"address"`                      // 详细地址
@@ -155,7 +155,7 @@ func (u UserInfoReq) Messages() map[string]string {
 	return validate.MS{
 		"Realname.required": "用户名称不能为空.",
 		"Nickname.required": "用户昵称不能为空.",
-		"Gender.required":   "请选择用户性别.",
+		"Gender.int":        "请选择用户性别.",
 		"Mobile.required":   "手机号码不能为空.",
 		"Email.required":    "电子邮件不能为空.",
 		"Address.required":  "用户名不能为空.",

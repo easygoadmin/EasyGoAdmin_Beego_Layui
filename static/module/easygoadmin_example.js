@@ -24,7 +24,7 @@
 /**
  * 演示一管理
  * @author 半城风雨
- * @since 2022-04-15
+ * @since 2022-05-13
  */
 layui.use(['func'], function () {
 
@@ -92,7 +92,7 @@ layui.use(['func'], function () {
         
             
             , {field: 'IsVip', width: 100, title: '是否VIP', align: 'center', templet: function (d) {
-				return  '<input type="checkbox" name="IsVip" value="'+d.Id+'" lay-skin="switch" lay-text="是|否" lay-filter="IsVip" '+(d.isVip==1 ? 'checked' : '')+'>';
+				return  '<input type="checkbox" name="IsVip" value="'+d.Id+'" lay-skin="switch" lay-text="是|否" lay-filter="IsVip" '+(d.isvip==1 ? 'checked' : '')+'>';
             }}
             
         
@@ -100,8 +100,8 @@ layui.use(['func'], function () {
 			, {field: 'Sort', width: 100, title: '排序号', align: 'center'}
             
         
-            , {field: 'create_time', width: 180, title: '添加时间', align: 'center'}
-            , {field: 'update_time', width: 180, title: '更新时间', align: 'center'}
+            , {field: 'CreateTime', width: 180, title: '添加时间', align: 'center'}
+            , {field: 'UpdateTime', width: 180, title: '更新时间', align: 'center'}
             , {fixed: 'right', width: 150, title: '功能操作', align: 'center', toolbar: '#toolBar'}
         ];
 

@@ -15,7 +15,7 @@ mysql:
 # 文件上传
 attachment:
   # 文件存储路径
-  file_path: 'D:\\RXThinkCMF\\uploads'
+  file_path: 'D:\\uploads'
   # 上传文件最大值
   file_size: 52428800
   # 允许上传文件后缀
@@ -25,8 +25,8 @@ attachment:
 # 系统配置
 easygoadmin:
   # 版本号
-  version: "v2.0.0"
+  version: "v2.2.0"
   # 调试模式
   debug: false
   # 图片域名
-  image: "http://images.beego.ele"
+  image: "http://images.beego.layui"

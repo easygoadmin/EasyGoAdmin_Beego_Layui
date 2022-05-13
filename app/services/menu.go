@@ -129,7 +129,7 @@ func (s *menuService) Add(req dto.MenuAddReq, userId int) (int64, error) {
 		return 0, errors.New("添加失败")
 	}
 	// 添加节点
-	setPermission(entity.Type, req.Func, req.Name, req.Url, gconv.Int(entity.Id), userId)
+	setPermission(entity.Type, req.Func, req.Name, req.Url, entity.Id, userId)
 	return rows, nil
 }
 

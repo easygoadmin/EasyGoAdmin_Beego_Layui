@@ -24,7 +24,7 @@
 /**
  * 演示一管理-控制器
  * @author 半城风雨
- * @since 2022-04-15
+ * @since 2022-05-13
  * @File : example
  */
 package controllers
@@ -40,7 +40,7 @@ import (
 
 var Example = new(ExampleController)
 
-type ExampleController struct {
+type ExampleController struct{
 	BaseController
 }
 
@@ -92,12 +92,28 @@ func (ctl *ExampleController) Edit() {
 				Msg:  err.Error(),
 			})
 		}
-
+		
+		
+		
+		
+		
 		// 头像
 		if info.Avatar != "" {
 			info.Avatar = utils.GetImageUrl(info.Avatar)
 		}
-
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// 渲染模板
 		ctl.Data["info"] = info
 	}
@@ -191,6 +207,14 @@ func (ctl *ExampleController) Delete() {
 	})
 }
 
+
+
+
+
+
+
+
+
 func (ctl *ExampleController) Status() {
 	// 参数绑定
 	var req dto.ExampleStatusReq
@@ -216,6 +240,10 @@ func (ctl *ExampleController) Status() {
 	})
 }
 
+
+
+
+
 func (ctl *ExampleController) IsVip() {
 	// 参数绑定
 	var req dto.ExampleIsVipReq
@@ -240,3 +268,7 @@ func (ctl *ExampleController) IsVip() {
 		Msg:  "设置成功",
 	})
 }
+
+
+
+

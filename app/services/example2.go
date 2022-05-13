@@ -24,7 +24,7 @@
 /**
  * 演示二管理-服务类
  * @author 半城风雨
- * @since 2022-04-15
+ * @since 2022-05-13
  * @File : example2
  */
 package services
@@ -33,7 +33,6 @@ import (
 	"easygoadmin/app/dto"
 	"easygoadmin/app/models"
 	"easygoadmin/app/vo"
-	"easygoadmin/utils"
 	"easygoadmin/utils/gconv"
 	"errors"
 	"github.com/beego/beego/v2/client/orm"
@@ -88,9 +87,6 @@ func (s *example2Service) GetList(req dto.Example2PageReq) ([]vo.Example2InfoVo,
 }
 
 func (s *example2Service) Add(req dto.Example2AddReq, userId int) (int64, error) {
-	if utils.AppDebug() {
-		return 0, errors.New("演示环境，暂无权限操作")
-	}
 	// 实例化对象
 	var entity models.Example2
 
@@ -110,9 +106,6 @@ func (s *example2Service) Add(req dto.Example2AddReq, userId int) (int64, error)
 }
 
 func (s *example2Service) Update(req dto.Example2UpdateReq, userId int) (int64, error) {
-	if utils.AppDebug() {
-		return 0, errors.New("演示环境，暂无权限操作")
-	}
 	// 查询记录
 	entity := &models.Example2{Id: gconv.Int(req.Id)}
 	err := entity.Get()
@@ -134,9 +127,6 @@ func (s *example2Service) Update(req dto.Example2UpdateReq, userId int) (int64, 
 
 // 删除
 func (s *example2Service) Delete(ids string) (int64, error) {
-	if utils.AppDebug() {
-		return 0, errors.New("演示环境，暂无权限操作")
-	}
 	// 记录ID
 	idsArr := strings.Split(ids, ",")
 	if len(idsArr) == 1 {
@@ -163,19 +153,12 @@ func (s *example2Service) Delete(ids string) (int64, error) {
 }
 
 func (s *example2Service) Status(req dto.Example2StatusReq, userId int) (int64, error) {
-	if utils.AppDebug() {
-		return 0, errors.New("演示环境，暂无权限操作")
-	}
 	// 查询记录是否存在
-	info := &models.Example2{Id: gconv.Int(req.Id)}
-	err := info.Get()
+	entity := &models.Example2{Id: req.Id}
+	err := entity.Get()
 	if err != nil {
 		return 0, errors.New("记录不存在")
 	}
-
-	// 设置状态
-	entity := &models.Example2{}
-	entity.Id = info.Id
 	entity.Status = req.Status
 	entity.UpdateUser = userId
 	entity.UpdateTime = time.Now()

@@ -24,7 +24,7 @@
 /**
  * 演示二管理-控制器
  * @author 半城风雨
- * @since 2022-04-15
+ * @since 2022-05-13
  * @File : example2
  */
 package controllers
@@ -40,7 +40,7 @@ import (
 
 var Example2 = new(Example2Controller)
 
-type Example2Controller struct {
+type Example2Controller struct{
 	BaseController
 }
 
@@ -92,7 +92,15 @@ func (ctl *Example2Controller) Edit() {
 				Msg:  err.Error(),
 			})
 		}
-
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// 渲染模板
 		ctl.Data["info"] = info
 	}
@@ -186,6 +194,10 @@ func (ctl *Example2Controller) Delete() {
 	})
 }
 
+
+
+
+
 func (ctl *Example2Controller) Status() {
 	// 参数绑定
 	var req dto.Example2StatusReq
@@ -210,3 +222,7 @@ func (ctl *Example2Controller) Status() {
 		Msg:  "设置成功",
 	})
 }
+
+
+
+

@@ -24,7 +24,7 @@
 /**
  * 演示一管理-服务类
  * @author 半城风雨
- * @since 2022-04-15
+ * @since 2022-05-13
  * @File : example
  */
 package services
@@ -51,28 +51,32 @@ func (s *exampleService) GetList(req dto.ExamplePageReq) ([]vo.ExampleInfoVo, in
 	query := orm.NewOrm().QueryTable(new(models.Example)).Filter("mark", 1)
 
 	// 测试名称
-
+	
 	if req.Name != "" {
 		query = query.Filter("name__contains", req.Name)
 	}
+	
 
 	// 状态：1正常 2停用
-
+	
 	if req.Status > 0 {
 		query = query.Filter("status", req.Status)
 	}
+	
 
 	// 类型：1京东 2淘宝 3拼多多 4唯品会
-
+	
 	if req.Type > 0 {
 		query = query.Filter("type", req.Type)
 	}
+	
 
 	// 是否VIP：1是 2否
-
+	
 	if req.IsVip > 0 {
 		query = query.Filter("is_vip", req.IsVip)
 	}
+	
 
 	// 排序
 	query = query.OrderBy("id")
@@ -91,12 +95,18 @@ func (s *exampleService) GetList(req dto.ExamplePageReq) ([]vo.ExampleInfoVo, in
 	for _, v := range lists {
 		item := vo.ExampleInfoVo{}
 		item.Example = v
-
+		
+		
+		
 		// 头像
 		if v.Avatar != "" {
 			item.Avatar = utils.GetImageUrl(v.Avatar)
 		}
-
+		
+		
+		
+		
+		
 		result = append(result, item)
 	}
 
@@ -105,12 +115,9 @@ func (s *exampleService) GetList(req dto.ExamplePageReq) ([]vo.ExampleInfoVo, in
 }
 
 func (s *exampleService) Add(req dto.ExampleAddReq, userId int) (int64, error) {
-	if utils.AppDebug() {
-		return 0, errors.New("演示环境，暂无权限操作")
-	}
 	// 实例化对象
 	var entity models.Example
-
+	
 	entity.Name = req.Name
 	// 头像处理
 	if req.Avatar != "" {
@@ -121,15 +128,18 @@ func (s *exampleService) Add(req dto.ExampleAddReq, userId int) (int64, error) {
 		entity.Avatar = avatar
 	}
 	entity.Content = req.Content
-
+	
 	entity.Status = req.Status
-
+	
+	
 	entity.Type = req.Type
-
+	
+	
 	entity.IsVip = req.IsVip
-
+	
+	
 	entity.Sort = req.Sort
-
+	
 	entity.CreateUser = userId
 	entity.CreateTime = time.Now()
 	entity.UpdateUser = userId
@@ -140,16 +150,13 @@ func (s *exampleService) Add(req dto.ExampleAddReq, userId int) (int64, error) {
 }
 
 func (s *exampleService) Update(req dto.ExampleUpdateReq, userId int) (int64, error) {
-	if utils.AppDebug() {
-		return 0, errors.New("演示环境，暂无权限操作")
-	}
 	// 查询记录
 	entity := &models.Example{Id: gconv.Int(req.Id)}
 	err := entity.Get()
 	if err != nil {
 		return 0, errors.New("记录不存在")
 	}
-
+	
 	entity.Name = req.Name
 	// 头像处理
 	if req.Avatar != "" {
@@ -160,15 +167,18 @@ func (s *exampleService) Update(req dto.ExampleUpdateReq, userId int) (int64, er
 		entity.Avatar = avatar
 	}
 	entity.Content = req.Content
-
+	
 	entity.Status = req.Status
-
+	
+	
 	entity.Type = req.Type
-
+	
+	
 	entity.IsVip = req.IsVip
-
+	
+	
 	entity.Sort = req.Sort
-
+	
 	entity.UpdateUser = userId
 	entity.UpdateTime = time.Now()
 	// 更新记录
@@ -177,9 +187,6 @@ func (s *exampleService) Update(req dto.ExampleUpdateReq, userId int) (int64, er
 
 // 删除
 func (s *exampleService) Delete(ids string) (int64, error) {
-	if utils.AppDebug() {
-		return 0, errors.New("演示环境，暂无权限操作")
-	}
 	// 记录ID
 	idsArr := strings.Split(ids, ",")
 	if len(idsArr) == 1 {
@@ -205,38 +212,44 @@ func (s *exampleService) Delete(ids string) (int64, error) {
 	}
 }
 
+
+
+
+
+
+
+
+
 func (s *exampleService) Status(req dto.ExampleStatusReq, userId int) (int64, error) {
-	if utils.AppDebug() {
-		return 0, errors.New("演示环境，暂无权限操作")
-	}
 	// 查询记录是否存在
-	entity := &models.Example{Id: gconv.Int(req.Id)}
+	entity := &models.Example{Id: req.Id}
 	err := entity.Get()
 	if err != nil {
-		return 0, errors.New("记录不存在")
+	return 0, errors.New("记录不存在")
 	}
-
-	// 设置状态
 	entity.Status = req.Status
 	entity.UpdateUser = userId
 	entity.UpdateTime = time.Now()
 	return entity.Update()
 }
 
+
+
+
+
 func (s *exampleService) IsVip(req dto.ExampleIsVipReq, userId int) (int64, error) {
-	if utils.AppDebug() {
-		return 0, errors.New("演示环境，暂无权限操作")
-	}
 	// 查询记录是否存在
-	entity := &models.Example{Id: gconv.Int(req.Id)}
+	entity := &models.Example{Id: req.Id}
 	err := entity.Get()
 	if err != nil {
-		return 0, errors.New("记录不存在")
+	return 0, errors.New("记录不存在")
 	}
-
-	// 设置是否VIP
 	entity.IsVip = req.IsVip
 	entity.UpdateUser = userId
 	entity.UpdateTime = time.Now()
 	return entity.Update()
 }
+
+
+
+
