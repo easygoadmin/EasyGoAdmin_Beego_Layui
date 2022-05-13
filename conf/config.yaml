@@ -25,7 +25,7 @@ attachment:
 # 系统配置
 easygoadmin:
   # 版本号
-  version: "v2.2.0"
+  version: "v2.3.0"
   # 调试模式
   debug: false
   # 图片域名

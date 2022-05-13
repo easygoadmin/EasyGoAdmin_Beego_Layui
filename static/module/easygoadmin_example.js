@@ -92,7 +92,7 @@ layui.use(['func'], function () {
         
             
             , {field: 'IsVip', width: 100, title: '是否VIP', align: 'center', templet: function (d) {
-				return  '<input type="checkbox" name="IsVip" value="'+d.Id+'" lay-skin="switch" lay-text="是|否" lay-filter="IsVip" '+(d.isvip==1 ? 'checked' : '')+'>';
+				return  '<input type="checkbox" name="IsVip" value="'+d.Id+'" lay-skin="switch" lay-text="是|否" lay-filter="IsVip" '+(d.IsVip==1 ? 'checked' : '')+'>';
             }}
             
         

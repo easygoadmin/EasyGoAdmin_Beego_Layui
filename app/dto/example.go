@@ -21,10 +21,20 @@
 // | 法律所允许的合法合规的软件产品研发，详细声明内容请阅读《框架免责声明》附件；
 // +----------------------------------------------------------------------
 
+/**
+ * 演示一Dto
+ * @author 半城风雨
+ * @since 2022-05-13
+ * @File : example
+ */
 package dto
+
+import "github.com/gookit/validate"
 
 // 分页查询
 type ExamplePageReq struct {
+	Page  int    `form:"page"`  // 页码
+	Limit int    `form:"limit"` // 每页数
 
 	
 	Name   string `form:"name"`   // 测试名称
@@ -42,8 +52,6 @@ type ExamplePageReq struct {
 	IsVip   int    `form:"isVip"`   // 是否VIP：1是 2否
 	
 
-	Page  int    `form:"page"`  // 页码
-	Limit int    `form:"limit"` // 每页数
 }
 
 // 添加演示一
@@ -79,9 +87,44 @@ type ExampleAddReq struct {
 
 }
 
+// 添加表单验证
+func (v ExampleAddReq) Messages() map[string]string {
+	return validate.MS{
+	
+		
+		"Name.required": "测试名称不能为空.", // 测试名称
+		
+	
+		
+		"Avatar.required": "头像不能为空.", // 头像
+		
+	
+		
+		"Content.required": "内容不能为空.", // 内容
+		
+	
+		
+		"Status.int":    "请选择状态.", // 状态：1正常 2停用
+		
+	
+		
+		"Type.int":    "请选择类型.", // 类型：1京东 2淘宝 3拼多多 4唯品会
+		
+	
+		
+		"IsVip.int":    "请选择是否VIP.", // 是否VIP：1是 2否
+		
+	
+		
+		"Sort.int":      "排序号不能为空.", // 排序号
+		
+	
+	}
+}
+
 // 编辑演示一
 type ExampleUpdateReq struct {
-	Id     string    `form:"id" validate:"required"`
+	Id     int    `form:"id" validate:"int"`
 
 	
 	Name  string `form:"name" validate:"required"`   // 测试名称
@@ -113,6 +156,42 @@ type ExampleUpdateReq struct {
 
 }
 
+// 更新表单验证
+func (v ExampleUpdateReq) Messages() map[string]string {
+	return validate.MS{
+		"Id.int":        "记录ID不能为空.",
+	
+		
+		"Name.required": "测试名称不能为空.", // 测试名称
+		
+	
+		
+		"Avatar.required": "头像不能为空.", // 头像
+		
+	
+		
+		"Content.required": "内容不能为空.", // 内容
+		
+	
+		
+		"Status.int":    "请选择状态.", // 状态：1正常 2停用
+		
+	
+		
+		"Type.int":    "请选择类型.", // 类型：1京东 2淘宝 3拼多多 4唯品会
+		
+	
+		
+		"IsVip.int":    "请选择是否VIP.", // 是否VIP：1是 2否
+		
+	
+		
+		"Sort.int":      "排序号不能为空.", // 排序号
+		
+	
+	}
+}
+
 
 
 
@@ -127,6 +206,14 @@ type ExampleStatusReq struct {
 	Status int `form:"status" validate:"int"`
 }
 
+// 设置状态参数验证
+func (v ExampleStatusReq) Messages() map[string]string {
+	return validate.MS{
+		"Id.int":     "记录ID不能为空.",
+		"Status.int": "请选择状态：1正常 2停用.",
+	}
+}
+
 
 
 
@@ -135,6 +222,14 @@ type ExampleStatusReq struct {
 type ExampleIsVipReq struct {
 	Id     int `form:"id" validate:"int"`
 	IsVip int `form:"isVip" validate:"int"`
+}
+
+// 设置状态参数验证
+func (v ExampleIsVipReq) Messages() map[string]string {
+	return validate.MS{
+		"Id.int":     "记录ID不能为空.",
+		"IsVip.int": "请选择是否VIP：1是 2否.",
+	}
 }
 
 
