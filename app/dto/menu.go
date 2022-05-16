@@ -46,7 +46,7 @@ type MenuAddReq struct {
 }
 
 // 添加菜单表单验证
-func (a MenuAddReq) Messages() map[string]string {
+func (v MenuAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Name.required": "菜单名称不能为空.",
 		"Pid.int":       "请选择上级菜单.",
@@ -73,7 +73,7 @@ type MenuUpdateReq struct {
 }
 
 // 添加菜单表单验证
-func (a MenuUpdateReq) Messages() map[string]string {
+func (v MenuUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":        "菜单ID不能为空.",
 		"Name.required": "菜单名称不能为空.",

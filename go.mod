@@ -9,6 +9,5 @@ require (
 	github.com/google/uuid v1.3.0
 	github.com/gookit/validate v1.3.1
 	github.com/mojocn/base64Captcha v1.2.2
-	github.com/smartystreets/goconvey v1.7.2
 	github.com/spf13/viper v1.10.1
 )

@@ -39,7 +39,7 @@ type MemberLevelAddReq struct {
 }
 
 // 添加会员等级表单验证
-func (a MemberLevelAddReq) Messages() map[string]string {
+func (v MemberLevelAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Name.required": "会员等级名称不能为空.",
 		"Sort.int":      "排序不能为空.",
@@ -54,7 +54,7 @@ type MemberLevelUpdateReq struct {
 }
 
 // 添加会员等级表单验证
-func (a MemberLevelUpdateReq) Messages() map[string]string {
+func (v MemberLevelUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":        "会员等级ID不能为空.",
 		"Name.required": "会员等级名称不能为空.",

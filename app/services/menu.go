@@ -33,6 +33,7 @@ import (
 	"errors"
 	"github.com/beego/beego/v2/client/orm"
 	"reflect"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -293,23 +294,21 @@ func (s *menuService) GetPermissionMenuList(userId int) interface{} {
 		menuList, _ := Menu.GetTreeList()
 		return menuList
 	} else {
-		//// 非管理员
-		//
-		//// 数据转换
-		//list := make([]models.Menu, 0)
-		//// 查询数据
-		//utils.XormDb.Table("sys_menu").Alias("m").
-		//	Join("INNER", []string{"sys_role_menu", "r"}, "m.id = r.menu_id").
-		//	Join("INNER", []string{"sys_user_role", "ur"}, "ur.role_id=r.role_id").
-		//	Where("ur.user_id=? AND m.type=0 AND m.`status`=1 AND m.mark=1", userId).
-		//	Cols("m.*").
-		//	OrderBy("m.id asc").
-		//	Find(&list)
-		//
-		//// 数据处理
-		//var menuNode vo.MenuTreeNode
-		//makeTree(list, &menuNode)
-		//return menuNode.Children
-		return nil
+		// 非管理员
+
+		// 数据转换
+		list := make([]models.Menu, 0)
+		// 查询SQL语句
+		sql := "SELECT m.* FROM sys_menu AS m" +
+			" INNER JOIN sys_role_menu AS rm ON m.id = rm.menu_id" +
+			" INNER JOIN sys_user_role AS ur ON ur.role_id=rm.role_id" +
+			" WHERE ur.user_id=" + strconv.Itoa(userId) + " AND m.type=0 AND m.`status`=1 AND m.mark=1" +
+			" ORDER BY m.sort ASC"
+		// 执行查询并转换对象
+		orm.NewOrm().Raw(sql).QueryRows(&list)
+		// 数据处理
+		var menuNode vo.MenuTreeNode
+		makeTree(list, &menuNode)
+		return menuNode.Children
 	}
 }

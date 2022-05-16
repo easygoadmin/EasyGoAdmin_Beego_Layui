@@ -45,7 +45,7 @@ type ItemCateAddReq struct {
 }
 
 // 添加栏目表单验证
-func (a ItemCateAddReq) Messages() map[string]string {
+func (v ItemCateAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Name.required":   "栏目名称不能为空.",
 		"Pid.int":         "请选择上级栏目.",
@@ -74,7 +74,7 @@ type ItemCateUpdateReq struct {
 }
 
 // 更新栏目表单验证
-func (a ItemCateUpdateReq) Messages() map[string]string {
+func (v ItemCateUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":          "栏目ID不能为空.",
 		"Name.required":   "栏目名称不能为空.",

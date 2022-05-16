@@ -51,7 +51,7 @@ type AdAddReq struct {
 }
 
 // 添加广告表单验证
-func (a AdAddReq) Messages() map[string]string {
+func (v AdAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Title.required":       "广告标题不能为空.",
 		"AdSortId.int":         "请选择广告位.",
@@ -87,12 +87,12 @@ type AdUpdateReq struct {
 }
 
 // 添加广告表单验证
-func (u AdUpdateReq) Messages() map[string]string {
+func (v AdUpdateReq) Messages() map[string]string {
 	return validate.MS{
-		"Id.int":         "广告ID不能为空.",
-		"Title.required": "广告标题不能为空.",
-		"AdSortId.int":   "请选择广告位.",
-		"Type.int":       "请选择广告格式.",
+		"Id.int":               "广告ID不能为空.",
+		"Title.required":       "广告标题不能为空.",
+		"AdSortId.int":         "请选择广告位.",
+		"Type.int":             "请选择广告格式.",
 		"Description.required": "广告描述不能为空.",
 		"Url.required":         "广告URL不能为空.",
 		"Width.int":            "广告宽度不能为空.",
@@ -110,7 +110,7 @@ type AdStatusReq struct {
 	Status int `form:"status" validate:"int"`
 }
 
-func (s AdStatusReq) Messages() map[string]string {
+func (v AdStatusReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":     "广告ID不能为空.",
 		"Status.int": "请选择广告状态.",

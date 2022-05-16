@@ -44,7 +44,7 @@ type DeptAddReq struct {
 }
 
 // 添加部门表单验证
-func (a DeptAddReq) Messages() map[string]string {
+func (v DeptAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Name.required":     "部门名称不能为空.",
 		"Code.required":     "部门编码不能为空.",
@@ -67,7 +67,7 @@ type DeptUpdateReq struct {
 }
 
 // 添加部门表单验证
-func (a DeptUpdateReq) Messages() map[string]string {
+func (v DeptUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":            "部门ID不能为空.",
 		"Name.required":     "部门名称不能为空.",

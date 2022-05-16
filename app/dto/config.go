@@ -39,7 +39,7 @@ type ConfigAddReq struct {
 }
 
 // 添加配置表单验证
-func (a ConfigAddReq) Messages() map[string]string {
+func (v ConfigAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Name.required": "配置名称不能为空.",
 		"Sort.int":      "排序不能为空.",
@@ -54,7 +54,7 @@ type ConfigUpdateReq struct {
 }
 
 // 修改配置表单验证
-func (a ConfigUpdateReq) Messages() map[string]string {
+func (v ConfigUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":        "配置ID不能为空.",
 		"Name.required": "配置名称不能为空.",

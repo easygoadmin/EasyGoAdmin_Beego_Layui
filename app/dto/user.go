@@ -61,7 +61,7 @@ type UserAddReq struct {
 }
 
 // 添加用户表单验证
-func (a UserAddReq) Messages() map[string]string {
+func (v UserAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Realname.required": "用户名称不能为空.",
 		"Nickname.required": "用户昵称不能为空.",
@@ -106,7 +106,7 @@ type UserUpdateReq struct {
 }
 
 // 更新用户表单验证
-func (u UserUpdateReq) Messages() map[string]string {
+func (v UserUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":            "用户ID不能为空.",
 		"Realname.required": "用户名称不能为空.",
@@ -131,7 +131,7 @@ type UserStatusReq struct {
 	Status int `form:"status"    validate:"int"`
 }
 
-func (s UserStatusReq) Messages() map[string]string {
+func (v UserStatusReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":     "用户ID不能为空.",
 		"Status.int": "请选择用户状态.",
@@ -151,7 +151,7 @@ type UserInfoReq struct {
 }
 
 // 更新个人中心表单验证
-func (u UserInfoReq) Messages() map[string]string {
+func (v UserInfoReq) Messages() map[string]string {
 	return validate.MS{
 		"Realname.required": "用户名称不能为空.",
 		"Nickname.required": "用户昵称不能为空.",
@@ -170,7 +170,7 @@ type UpdatePwd struct {
 }
 
 // 更新密码表单验证
-func (u UpdatePwd) Messages() map[string]string {
+func (v UpdatePwd) Messages() map[string]string {
 	return validate.MS{
 		"OldPassword.required": "旧密码不能为空.",
 		"NewPassword.required": "新密码不能为空.",
@@ -184,7 +184,7 @@ type UserResetPwdReq struct {
 }
 
 // 更新密码表单验证
-func (r UserResetPwdReq) Messages() map[string]string {
+func (v UserResetPwdReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int": "用户ID不能为空.",
 	}

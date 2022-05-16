@@ -42,7 +42,7 @@ type RoleAddReq struct {
 }
 
 // 添加角色表单验证
-func (a RoleAddReq) Messages() map[string]string {
+func (v RoleAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Name.required": "角色名称不能为空.",
 		"Code.required": "角色编码不能为空.",
@@ -62,7 +62,7 @@ type RoleUpdateReq struct {
 }
 
 // 添加角色表单验证
-func (u RoleUpdateReq) Messages() map[string]string {
+func (v RoleUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":        "角色ID不能为空.",
 		"Name.required": "角色名称不能为空.",
@@ -79,7 +79,7 @@ type RoleStatusReq struct {
 }
 
 // 设置状态验证
-func (s RoleStatusReq) Messages() map[string]string {
+func (v RoleStatusReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":     "角色ID不能为空.",
 		"Status.int": "请选择角色状态.",

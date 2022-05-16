@@ -45,7 +45,7 @@ type CityAddReq struct {
 }
 
 // 添加城市表单验证
-func (a CityAddReq) Messages() map[string]string {
+func (v CityAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Level.int":     "请选择城市级别.",
 		"Name.required": "城市名称不能为空.",
@@ -68,7 +68,7 @@ type CityUpdateReq struct {
 }
 
 // 编辑城市表单验证
-func (a CityUpdateReq) Messages() map[string]string {
+func (v CityUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":        "城市ID不能为空.",
 		"Level.int":     "请选择城市级别.",
@@ -83,7 +83,7 @@ type CityChildReq struct {
 }
 
 // 获取子级城市参数验证
-func (a CityChildReq) Messages() map[string]string {
+func (v CityChildReq) Messages() map[string]string {
 	return validate.MS{
 		"CityCode.required": "城市编码不能为空.",
 	}

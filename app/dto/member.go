@@ -55,7 +55,7 @@ type MemberAddReq struct {
 }
 
 // 添加会员表单验证
-func (a MemberAddReq) Messages() map[string]string {
+func (v MemberAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Username.required":     "用户名不能为空.",
 		"MemberLevel.int":       "请选择会员等级.",
@@ -96,7 +96,7 @@ type MemberUpdateReq struct {
 }
 
 // 更新会员表单验证
-func (u MemberUpdateReq) Messages() map[string]string {
+func (v MemberUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":                "会员ID不能为空.",
 		"Username.required":     "用户名不能为空.",
@@ -121,7 +121,7 @@ type MemberStatusReq struct {
 	Status int `form:"status" validate:"int"`
 }
 
-func (s MemberStatusReq) Messages() map[string]string {
+func (v MemberStatusReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":     "会员ID不能为空.",
 		"Status.int": "请选择会员状态.",

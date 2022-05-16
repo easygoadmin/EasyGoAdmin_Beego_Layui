@@ -40,7 +40,7 @@ type LevelAddReq struct {
 }
 
 // 添加职级表单验证
-func (a LevelAddReq) Messages() map[string]string {
+func (v LevelAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Name.required": "职级名称不能为空.",
 		"Status.int":    "请选择职级状态.",
@@ -57,7 +57,7 @@ type LevelUpdateReq struct {
 }
 
 // 更新职级表单验证
-func (u LevelUpdateReq) Messages() map[string]string {
+func (v LevelUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":        "职级ID不能为空.",
 		"Name.required": "职级名称不能为空.",
@@ -73,7 +73,7 @@ type LevelStatusReq struct {
 }
 
 // 设置状态参数验证
-func (s LevelStatusReq) Messages() map[string]string {
+func (v LevelStatusReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":     "职级ID不能为空.",
 		"Status.int": "请选择职级状态.",

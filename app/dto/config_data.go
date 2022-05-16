@@ -46,7 +46,7 @@ type ConfigDataAddReq struct {
 }
 
 // 添加配置项表单验证
-func (a ConfigDataAddReq) Messages() map[string]string {
+func (v ConfigDataAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Title.required": "配置项名称不能为空.",
 		"Code.required":  "配置项编码不能为空.",
@@ -69,7 +69,7 @@ type ConfigDataUpdateReq struct {
 }
 
 // 更新配置项表单验证
-func (u ConfigDataUpdateReq) Messages() map[string]string {
+func (v ConfigDataUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":         "配置项ID不能为空.",
 		"Title.required": "配置项名称不能为空.",
@@ -86,7 +86,7 @@ type ConfigDataStatusReq struct {
 }
 
 // 设置状态参数验证
-func (s ConfigDataStatusReq) Messages() map[string]string {
+func (v ConfigDataStatusReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":     "配置项ID不能为空.",
 		"Status.int": "请选择配置项状态.",

@@ -28,10 +28,12 @@ import (
 	"easygoadmin/app/dto"
 	"easygoadmin/app/models"
 	"easygoadmin/app/services"
+	"easygoadmin/conf"
 	"easygoadmin/utils"
 	"easygoadmin/utils/common"
 	"github.com/beego/beego/v2/client/orm"
 	"github.com/gookit/validate"
+	"strings"
 )
 
 var Ad = new(AdController)
@@ -88,6 +90,11 @@ func (ctl *AdController) Edit() {
 		// 广告图片
 		if info.Cover != "" {
 			info.Cover = utils.GetImageUrl(info.Cover)
+		}
+
+		// 富文本图片替换处理
+		if info.Content != "" {
+			info.Content = strings.ReplaceAll(info.Content, "[IMG_URL]", conf.CONFIG.EGAdmin.Image)
 		}
 
 		// 渲染模板

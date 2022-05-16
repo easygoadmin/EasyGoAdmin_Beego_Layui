@@ -40,7 +40,7 @@ type PositionAddReq struct {
 }
 
 // 添加岗位表单验证
-func (a PositionAddReq) Messages() map[string]string {
+func (v PositionAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Name.required": "岗位名称不能为空.",
 		"Status.int":    "请选择岗位状态.",
@@ -57,7 +57,7 @@ type PositionUpdateReq struct {
 }
 
 // 更新岗位表单验证
-func (u PositionUpdateReq) Messages() map[string]string {
+func (v PositionUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":        "岗位ID不能为空.",
 		"Name.required": "岗位名称不能为空.",
@@ -72,7 +72,7 @@ type PositionStatusReq struct {
 	Status int `form:"status"    validate:"int"`
 }
 
-func (s PositionStatusReq) Messages() map[string]string {
+func (v PositionStatusReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":     "岗位ID不能为空.",
 		"Status.int": "请选择岗位状态.",

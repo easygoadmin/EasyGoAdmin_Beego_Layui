@@ -44,7 +44,7 @@ type NoticeAddReq struct {
 }
 
 // 添加通知表单验证
-func (a NoticeAddReq) Messages() map[string]string {
+func (v NoticeAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Title.required":   "通知标题不能为空.",
 		"Content.required": "通知内容不能为空.",
@@ -67,7 +67,7 @@ type NoticeUpdateReq struct {
 }
 
 // 添加通知表单验证
-func (u NoticeUpdateReq) Messages() map[string]string {
+func (v NoticeUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":           "通知ID不能为空.",
 		"Title.required":   "通知标题不能为空.",
@@ -86,7 +86,7 @@ type NoticeStatusReq struct {
 }
 
 // 设置状态参数验证
-func (s NoticeStatusReq) Messages() map[string]string {
+func (v NoticeStatusReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":     "通知ID不能为空.",
 		"Status.int": "请选择通知状态.",

@@ -43,7 +43,7 @@ type DictDataAddReq struct {
 }
 
 // 添加字典项表单验证
-func (a DictDataAddReq) Messages() map[string]string {
+func (v DictDataAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Name.required": "字典项名称不能为空.",
 		"Code.required": "字典项编码不能为空.",
@@ -63,7 +63,7 @@ type DictDataUpdateReq struct {
 }
 
 // 更新字典项表单验证
-func (a DictDataUpdateReq) Messages() map[string]string {
+func (v DictDataUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":        "字典项ID不能为空.",
 		"Name.required": "字典项名称不能为空.",

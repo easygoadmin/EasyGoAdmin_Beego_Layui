@@ -43,7 +43,7 @@ type AdSortAddReq struct {
 }
 
 // 添加广告位表单验证
-func (a AdSortAddReq) Messages() map[string]string {
+func (v AdSortAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Description.required": "广告位描述不能为空.",
 		"ItemId.int":           "请选择站点.",
@@ -66,7 +66,7 @@ type AdSortUpdateReq struct {
 }
 
 // 添加广告位表单验证
-func (u AdSortUpdateReq) Messages() map[string]string {
+func (v AdSortUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":               "广告位ID不能为空.",
 		"Description.required": "广告位描述不能为空.",

@@ -31,7 +31,7 @@ type RoleMenuSaveReq struct {
 	MenuIds string `form:"menuIds"`
 }
 
-func (u RoleMenuSaveReq) Messages() map[string]string {
+func (v RoleMenuSaveReq) Messages() map[string]string {
 	return validate.MS{
 		"RoleId.int": "角色ID不能为空.",
 	}

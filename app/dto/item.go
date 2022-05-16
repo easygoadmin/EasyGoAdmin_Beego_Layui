@@ -45,7 +45,7 @@ type ItemAddReq struct {
 }
 
 // 添加站点表单验证
-func (a ItemAddReq) Messages() map[string]string {
+func (v ItemAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Name.required": "站点名称不能为空.",
 		"Type.int":      "请选择站点类型.",
@@ -68,7 +68,7 @@ type ItemUpdateReq struct {
 }
 
 // 更新站点表单验证
-func (u ItemUpdateReq) Messages() map[string]string {
+func (v ItemUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":        "站点ID不能为空.",
 		"Name.required": "站点名称不能为空.",
@@ -86,7 +86,7 @@ type ItemStatusReq struct {
 }
 
 // 设置状态参数验证
-func (s ItemStatusReq) Messages() map[string]string {
+func (v ItemStatusReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":     "站点ID不能为空.",
 		"Status.int": "请选择站点状态.",

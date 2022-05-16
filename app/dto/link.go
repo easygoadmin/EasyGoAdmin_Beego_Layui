@@ -50,7 +50,7 @@ type LinkAddReq struct {
 }
 
 // 添加友链表单验证
-func (a LinkAddReq) Messages() map[string]string {
+func (v LinkAddReq) Messages() map[string]string {
 	return validate.MS{
 		"Name.required": "友链名称不能为空.",
 		"Type.int":      "请选择友链类型.",
@@ -78,7 +78,7 @@ type LinkUpdateReq struct {
 }
 
 // 更新友链表单验证
-func (u LinkUpdateReq) Messages() map[string]string {
+func (v LinkUpdateReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":        "友链ID不能为空.",
 		"Name.required": "友链名称不能为空.",
@@ -96,7 +96,7 @@ type LinkStatusReq struct {
 	Status int `form:"status" validate:"int"`
 }
 
-func (s LinkStatusReq) Messages() map[string]string {
+func (v LinkStatusReq) Messages() map[string]string {
 	return validate.MS{
 		"Id.int":     "友链ID不能为空.",
 		"Status.int": "请选择友链状态.",
